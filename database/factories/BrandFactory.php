@@ -18,7 +18,7 @@ class BrandFactory extends Factory
     {
         return [
             'brand_name' => $this->faker->word,
-            'brand_establishment_date' => $this->faker->date('d-m-y'),
+            'brand_establishment_date' => $this->faker->date('d-m-Y'),
             'brand_manufacturing_country' => $this->faker->country(),
         ];
     }
