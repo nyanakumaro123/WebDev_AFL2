@@ -11,7 +11,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">HoopsElite</a>
+            <a class="navbar-brand" href="#">HoopsCloth</a>
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="#about">About</a>
                 <a class="nav-link" href="#products">Products</a>
@@ -25,7 +25,7 @@
         <div class="container">
             <h1 class="display-4">ELEVATE YOUR GAME</h1>
             <p class="lead">
-                Founded by players, for players. High-performance basketball apparel.
+                A Clothing store designed for players. so you can have High-performance basketball plays.
             </p>
         </div>
     </section>
@@ -73,15 +73,9 @@
             </div>
 
             <div class="row g-4">
-                {{-- <div class="col-md-4">
-                    <img src="https://images.unsplash.com/photo-1519861531473-92002a281736?q=80&w=2070" class="img-fluid rounded" alt="Gallery Image">
-                </div>
-                <div class="col-md-4">
-                    <img src="https://images.unsplash.com/photo-1520024741697-b86fb3defb1e?q=80&w=2070" class="img-fluid rounded" alt="Gallery Image">
-                </div> --}}
-                <div class="col-md-4">
+                
                     <img src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=2069" class="img-fluid rounded" alt="Gallery Image">
-                </div>
+               
             </div>
         </div>
     </section>
@@ -96,11 +90,11 @@
             <div class="row text-center">
                 <div class="col-md-4">
                     <h4>Our Store</h4>
-                    <p>Jalan Cendrawasih No. 23<br>Surabaya, Jawa Timur 60234</p>
+                    <p>Universitas Ciputra<br>Surabaya, Jawa Timur </p>
                 </div>
                 <div class="col-md-4">
                     <h4>Phone & Email</h4>
-                    <p>Phone: +62 812 3456 7890<br>Email: contact@hoopselite.id</p>
+                    <p>Phone: +62 81332227372<br>Email: contact@hoopscloth.id</p>
                 </div>
                 <div class="col-md-4">
                     <h4>Business Hours</h4>
@@ -112,7 +106,7 @@
 
     <footer class="bg-dark text-white text-center py-3">
         <div class="container">
-            <p class="mb-0">&copy; 2025 HoopsElite Apparel. All rights reserved.</p>
+            <p class="mb-0">&copy; 2025 HoopsCloth . Buuyy.</p>
         </div>
     </footer>
 
