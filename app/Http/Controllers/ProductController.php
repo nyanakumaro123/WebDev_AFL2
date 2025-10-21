@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function show() {
         $products = Product::with('brand')->get();
-        return view('productttt', [
+        return view('index', [
             'allproducts' => $products
         ]);
     }
