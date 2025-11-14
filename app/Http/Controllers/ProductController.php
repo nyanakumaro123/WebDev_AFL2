@@ -13,4 +13,25 @@ class ProductController extends Controller
             'allproducts' => $products
         ]);
     }
+    
+    public function create() {
+        $products = Product::with('brand')->get();
+        return view('index', [
+            'allproducts' => $products
+        ]);
+    }
+    
+    public function edit() {
+        $products = Product::with('brand')->get();
+        return view('index', [
+            'allproducts' => $products
+        ]);
+    }
+    
+    public function delete() {
+        $products = Product::with('brand')->get();
+        return view('index', [
+            'allproducts' => $products
+        ]);
+    }
 }

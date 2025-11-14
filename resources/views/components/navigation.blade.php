@@ -9,27 +9,43 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <!-- Centered navigation links -->
             <div class="navbar-nav mx-auto">
-                <a class="nav-link" href="{{ url('/') }}#about">About</a>
-                <a class="nav-link" href="{{ url('/') }}#products">Products</a>
-                <a class="nav-link" href="{{ url('/') }}#gallery">Gallery</a>
-                <a class="nav-link" href="{{ url('/') }}#contact">Contact</a>
+                <a class="nav-link" href="{{ url('/index') }}#about">About</a>
+                <a class="nav-link" href="{{ url('/index') }}#products">Products</a>
+                <a class="nav-link" href="{{ url('/index') }}#gallery">Gallery</a>
+                <a class="nav-link" href="{{ url('/index') }}#contact">Contact</a>
+                @auth
+                    @if (auth()->user()->status == 'admin')
+                        <a class="nav-link" href="{{ url('/admin') }}">Admin</a>
+                    @endif
+                @endauth
             </div>
 
             <!-- Auth links on the right -->
             <div class="navbar-nav">
                 @auth
                     <!-- Simple logout button -->
-                    <form method="POST" action="{{ route('logout') }}" class="d-inline">
+                    {{-- <form method="POST" action="{{ route('logout') }}" class="d-inline">
                         @csrf
                         <button type="submit" class="nav-link btn btn-link text-light p-0" style="border: none; background: none;">
                             Logout
                         </button>
+                    </form> --}}
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button class="btn nav-link" type="submit">
+                            Logout
+                        </button>
+                        {{-- <x-responsive-nav-link :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                            
+                        </x-responsive-nav-link> --}}
                     </form>
-                @else
+                @endauth
+                {{-- @else
                     <!-- Show login/register when not authenticated -->
                     <a class="nav-link" href="{{ route('login') }}">Login</a>
-                    <a class="nav-link" href="{{ route('register') }}">Register</a>
-                @endauth
+                    <a class="nav-link" href="{{ route('register') }}">Register</a> --}}
             </div>
         </div>
     </div>
