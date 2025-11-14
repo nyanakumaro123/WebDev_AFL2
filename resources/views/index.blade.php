@@ -27,31 +27,15 @@
                 <p class="text-muted">Our curated collection of performance wear.</p>
             </div>
 
-            <table class="table table-striped table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th>#</th>
-                        <th>Product Name</th>
-                        <th>Size</th>
-                        <th>Color</th>
-                        <th>Brand</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($allproducts as $product)
-                    <tr>
-                        <td>{{ $product->id }}</td>
-                        <td>{{ $product->product_name }}</td>
-                        <td>{{ $product->product_size }}</td>
-                        <td>{{ $product->product_color }}</td>
-                        
-                        <td>{{ $product->brand->brand_name }}</td>
-                      
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div class="row">
+                @foreach ($allproducts as $product)
+                    <x-product :product="$product" />
+                @endforeach
+            </div>
+
+            <div class="d-flex justify-content-center mt-4">
+                {{ $allproducts->links() }}
+            </div>
         </div>
     </section>
 
