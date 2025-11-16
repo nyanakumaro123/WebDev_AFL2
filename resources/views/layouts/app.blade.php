@@ -21,7 +21,7 @@
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
         {{-- @include('layouts.navigation') --}}
-        <x-admin-navigation></x-admin-navigation>
+        <x-navigation></x-navigation>
 
         <!-- Page Heading -->
         @isset($header)

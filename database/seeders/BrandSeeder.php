@@ -13,8 +13,11 @@ class BrandSeeder extends Seeder
      */
     public function run(): void
     {
-        Brand::create([
-            
-        ]);
+        // Brand::create([
+        //     'brand_name' => 'nikie',
+        //     'brand_establishment_date' => 'nikie',
+        //     'brand_manufacturing_country' => 'nikie',
+        //     'brand_image' => 'nikie',
+        // ]);
     }
 }

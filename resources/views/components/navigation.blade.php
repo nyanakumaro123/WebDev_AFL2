@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">HoopsCloth</a>
+        <a class="navbar-brand" href="/">HoopsCloth</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -13,9 +13,11 @@
                 <a class="nav-link" href="{{ url('/index') }}#products">Products</a>
                 <a class="nav-link" href="{{ url('/index') }}#gallery">Gallery</a>
                 <a class="nav-link" href="{{ url('/index') }}#contact">Contact</a>
+            </div>
+            <div class="navbar-nav ">
                 @auth
                     @if (auth()->user()->status == 'admin')
-                        <a class="nav-link" href="{{ url('/admin') }}">Admin</a>
+                        <a class="nav-link" href="{{ route('product.list.view') }}">Admin</a>
                     @endif
                 @endauth
             </div>

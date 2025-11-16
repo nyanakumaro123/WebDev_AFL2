@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('brand_name');
             $table->string('brand_image');
-            $table->string('brand_establishment_date');
+            $table->date('brand_establishment_date');
             $table->string('brand_manufacturing_country');
             $table->timestamps();
         });
