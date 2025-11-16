@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('trials', function (Blueprint $table) {
             $table->id();
+            $table->string('brand_name');
+            $table->string('brand_image');
+            $table->date('brand_establishment_date');
+            $table->string('brand_manufacturing_country');
             $table->timestamps();
         });
     }

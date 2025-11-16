@@ -9,12 +9,15 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <!-- Centered navigation links -->
             <div class="navbar-nav mx-auto">
-                <a class="nav-link" href="{{ url('/index') }}#about">Product</a>
-                <a class="nav-link" href="{{ url('/index') }}#products">Brand</a>
-                <a class="nav-link" href="{{ url('/index') }}#gallery">Category</a>
+                <a class="nav-link" href="{{ route('product.list.view') }}">Product</a>
+                <a class="nav-link" href="{{ route('brand.list.view') }}">Brand</a>
+                <a class="nav-link" href="{{ route('category.list.view') }}">Category</a>
+            </div>
+
+            <div class="navbar-nav ">
                 @auth
                     @if (auth()->user()->status == 'admin')
-                        <a class="nav-link" href="{{ url('/admin') }}">Admin</a>
+                        <a class="nav-link" href="{{ route('index') }}">Back</a>
                     @endif
                 @endauth
             </div>
