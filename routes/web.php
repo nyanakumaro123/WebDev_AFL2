@@ -11,9 +11,8 @@ Route::get('/', function () {
 });
 
 // User Route
-Route::get('/index', function () {
-    return view('index');
-})->middleware(['auth', 'verified'])->name('index');
+Route::get('/index', [ProductController::class, 'show'])->middleware(['auth', 'verified'])->name('index');
+Route::get('/brands', [BrandController::class, 'index'])->name('brands.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

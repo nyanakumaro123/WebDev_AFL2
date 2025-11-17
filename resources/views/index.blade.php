@@ -15,48 +15,38 @@
                 <p class="text-muted">Our curated collection of performance wear.</p>
             </div>
 
-            <table class="table table-striped table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th>#</th>
-                        <th>Product Name</th>
-                        <th>Size</th>
-                        <th>Color</th>
-                        <th>Brand</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    {{-- @foreach ($allproducts as $product)
-                    <tr>
-                        <td>{{ $product->id }}</td>
-                        <td>{{ $product->product_name }}</td>
-                        <td>{{ $product->product_size }}</td>
-                        <td>{{ $product->product_color }}</td>
-                        
-                        <td>{{ $product->brand->brand_name }}</td>
-                      
-                    </tr>
-                    @endforeach --}}
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <section id="gallery" class="bg-light py-5">
-        <div class="container">
-            <div class="text-center mb-4">
-                <h2>Gallery</h2>
-                <p class="text-muted">In-game action. Street style.</p>
+            <div class="row mb-4">
+                <div class="col-md-6 mx-auto">
+                    <form action="{{ route('index') }}" method="GET">
+                        <div class="input-group">
+                            <input type="text" name="search" class="form-control" placeholder="Search for products..." value="{{ request('search') }}">
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
-            <div class="row g-4">
-                
-                    <img src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=2069" class="img-fluid rounded" alt="Gallery Image">
-               
+            <div class="row">
+                @foreach ($allproducts as $product)
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="{{ asset('storage/' . $product->product_image) }}" class="card-img-top" alt="{{ $product->product_name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $product->product_name }}</h5>
+                                <p class="card-text">{{ $product->brand->brand_name }}</p>
+                                <p class="card-text">Rp {{ number_format($product->product_price, 0, ',', '.') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="d-flex justify-content-center">
+                {{ $allproducts->links() }}
             </div>
         </div>
     </section>
+
 
     <section id="contact" class="py-5">
         <div class="container">

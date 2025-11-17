@@ -11,7 +11,6 @@
     <style>
         .product-card {
             transition: transform 0.3s;
-            height: 100%;
         }
 
         .product-card:hover {
@@ -21,7 +20,8 @@
 
         .product-image {
             height: 200px;
-            object-fit: cover;
+            object-fit: contain;
+            width: 100%;
         }
 
         .product-detail {
@@ -57,40 +57,28 @@
 
         <h1 class="text-center mb-4">Product List</h1>
 
-        <!-- Category Navigation Tabs -->
-        <ul class="nav nav-tabs mb-4" id="categoryTabs">
-            <li class="nav-item">
-                <a class="nav-link {{ request('category') == 'all' || !request('category') ? 'active' : '' }}"
-                    href="?category=all">
-                    All Products
-                </a>
-            </li>
-            @foreach ($categories as $category)
-                <li class="nav-item">
-                    <a class="nav-link" href="?category={{ $category->id }}">
-                        {{ $category->category_name }}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
+        <div class="row mb-4">
+            <div class="col-md-6 mx-auto">
+                <form action="{{ route('product.list.view') }}" method="GET">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control" placeholder="Search for products..." value="{{ request('search') }}">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         <!-- Products Display -->
         <div class="tab-content">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h4>
-                    @if (request('category') == 'all' || !request('category'))
-                        All Products
-                    @else
-                        {{ $categories->where('id', request('category'))->first()->category_name ?? 'Selected Category' }}
-                    @endif
-                </h4>
+                <h4>All Products</h4>
                 <a href="{{ route('product.create.view') }}" class="btn btn-success btn-sm">
                     Create New
                 </a>
             </div>
 
             @if ($products->isEmpty())
-                <div class="empty-category">No products available in this category</div>
+                <div class="empty-category">No products found.</div>
             @else
                 <div class="row">
                     @foreach ($products as $product)
@@ -136,6 +124,9 @@
                             </div>
                         </div>
                     @endforeach
+                </div>
+                <div class="d-flex justify-content-center">
+                    {{ $products->links() }}
                 </div>
             @endif
         </div>

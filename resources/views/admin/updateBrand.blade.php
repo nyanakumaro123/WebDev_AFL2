@@ -1,4 +1,15 @@
 <x-admin-app-layout>
+    <style>
+        .brand-image-preview {
+            max-width: 200px;
+            max-height: 200px;
+            object-fit: contain;
+            border: 1px solid #ddd;
+            padding: 5px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+    </style>
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10">
@@ -42,7 +53,7 @@
                             <div class="mb-4">
                                 <label for="image" class="form-label fw-semibold text-dark">Brand Image</label>
                                 <div class="mt-2">
-                                         <img src="{{ asset('storage/'.$brands->brand_image) }}" alt="{{ $brands->brand_name }}">
+                                         <img src="{{ asset('storage/'.$brands->brand_image) }}" alt="{{ $brands->brand_name }}" class="brand-image-preview">
                                     </div>
                                 <div class="input-group">
                                     <input type="file" name="brand_image" class="form-control">

@@ -11,7 +11,6 @@
     <style>
         .brand-card {
             transition: transform 0.3s;
-            height: 100%;
         }
 
         .brand-card:hover {
@@ -21,7 +20,8 @@
 
         .brand-image {
             height: 200px;
-            object-fit: cover;
+            object-fit: contain;
+            width: 100%;
         }
 
         .brand-detail {
