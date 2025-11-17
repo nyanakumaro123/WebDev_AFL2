@@ -15,7 +15,7 @@ class ProductController extends Controller
         $query = $request->input('search');
 
         if ($query) {
-            $products = Product::where('product_name', 'like', '%' . $query . '%')->paginate(6);
+            $products = Product::where('product_name', 'like', '%' . $query . '%')->orWhere('', 'like', '%'.$request->search.'%')->paginate(6)->withQueryString();
         } else {
             $products = Product::paginate(6);
         }
@@ -29,7 +29,7 @@ class ProductController extends Controller
         $query = $request->input('search');
 
         if ($query) {
-            $products = Product::where('product_name', 'like', '%' . $query . '%')->paginate(6);
+            $products = Product::where('product_name', 'like', '%' . $query . '%')->paginate(6)->withQueryString();
         } else {
             $products = Product::paginate(6);
         }

@@ -78,7 +78,7 @@
                                 <div class="card-body d-flex flex-column text-center">
                                     <!-- Category Icon/Placeholder -->
                                     <div class="category-icon">
-                                        📁
+                                        ⭐
                                     </div>
                                     
                                     <h5 class="card-title category-name">{{ $category->category_name }}</h5>
@@ -107,7 +107,7 @@
                                     <div class="mt-auto">
                                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                             <a href="{{ route('category.update.view', $category->id) }}"
-                                                class="btn btn-primary me-md-2">
+                                                class="btn btn-dark me-md-2">
                                                 Update
                                             </a>
                                             <form action="{{ route('delete.category', $category->id) }}" method="POST"

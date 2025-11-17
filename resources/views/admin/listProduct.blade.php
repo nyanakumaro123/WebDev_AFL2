@@ -45,6 +45,30 @@
             color: #6c757d;
             font-style: italic;
         }
+
+        .pagination .page-link {
+            color: #000000;
+            background-color: #ffffff;
+            border-color: #dee2e6;
+        }
+
+        .pagination .page-link:hover {
+            color: #000000;
+            background-color: #f8f9fa;
+            border-color: #adb5bd;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+
+        .pagination .page-item.disabled .page-link {
+            color: #6c757d;
+            background-color: #ffffff;
+            border-color: #dee2e6;
+        }
     </style>
 </head>
 
@@ -61,8 +85,9 @@
             <div class="col-md-6 mx-auto">
                 <form action="{{ route('product.list.view') }}" method="GET">
                     <div class="input-group">
-                        <input type="text" name="search" class="form-control" placeholder="Search for products..." value="{{ request('search') }}">
-                        <button class="btn btn-primary" type="submit">Search</button>
+                        <input type="text" name="search" class="form-control" placeholder="Search for products..."
+                            value="{{ request('search') }}">
+                        <button class="btn btn-dark" type="submit">Search</button>
                     </div>
                 </form>
             </div>
@@ -106,7 +131,8 @@
 
                                     <div class="mt-auto">
                                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                            <a href="{{ route('product.update.view', $product->id) }}"class="btn btn-primary me-md-2">
+                                            <a
+                                                href="{{ route('product.update.view', $product->id) }}"class="btn btn-dark me-md-2">
                                                 Update
                                             </a>
                                             <form action="{{ route('delete.product', $product->id) }}" method="POST"

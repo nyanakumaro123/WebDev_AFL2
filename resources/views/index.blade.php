@@ -19,8 +19,9 @@
                 <div class="col-md-6 mx-auto">
                     <form action="{{ route('index') }}" method="GET">
                         <div class="input-group">
-                            <input type="text" name="search" class="form-control" placeholder="Search for products..." value="{{ request('search') }}">
-                            <button class="btn btn-primary" type="submit">Search</button>
+                            <input type="text" name="search" class="form-control"
+                                placeholder="Search for products..." value="{{ request('search') }}">
+                            <button class="btn btn-dark" type="submit">Search</button>
                         </div>
                     </form>
                 </div>
@@ -29,12 +30,20 @@
             <div class="row">
                 @foreach ($allproducts as $product)
                     <div class="col-md-4 mb-4">
-                        <div class="card h-100">
-                            <img src="{{ asset('storage/' . $product->product_image) }}" class="card-img-top" alt="{{ $product->product_name }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $product->product_name }}</h5>
-                                <p class="card-text">{{ $product->brand->brand_name }}</p>
-                                <p class="card-text">Rp {{ number_format($product->product_price, 0, ',', '.') }}</p>
+                        <div class="card h-100 product-card">
+                            <div class="card-img-container" style="height: 450px; overflow: hidden;">
+                                <img src="{{ asset('storage/' . $product->product_image) }}"
+                                    class="card-img-top h-100 object-fit-cover" alt="{{ $product->product_name }}"
+                                    style="object-fit: contain; background-color: #f8f9fa;">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title"
+                                    style="min-height: 48px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                                    {{ $product->product_name }}
+                                </h5>
+                                <p class="card-text text-muted mb-1">{{ $product->brand->brand_name }}</p>
+                                <p class="card-text fw-bold text-danger mb-0">Rp
+                                    {{ number_format($product->product_price, 0, ',', '.') }}</p>
                             </div>
                         </div>
                     </div>
