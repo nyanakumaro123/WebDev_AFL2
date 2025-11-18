@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Storage;
 
 class BrandController extends Controller
 {
+    public function index()
+    {
+        $brands = Brand::all();
+        return view('brand', [
+            'brands' => $brands
+        ]);
+    }
+
     public function brandListView()
     {
         $brands = Brand::all();

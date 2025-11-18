@@ -11,7 +11,6 @@
     <style>
         .brand-card {
             transition: transform 0.3s;
-            height: 100%;
         }
 
         .brand-card:hover {
@@ -21,7 +20,8 @@
 
         .brand-image {
             height: 200px;
-            object-fit: cover;
+            object-fit: contain;
+            width: 100%;
         }
 
         .brand-detail {
@@ -104,7 +104,7 @@
                                     <div class="mt-auto">
                                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                             <a href="{{ route('brand.update.view', $brand->id) }}"
-                                                class="btn btn-primary me-md-2">
+                                                class="btn btn-dark me-md-2">
                                                 Update
                                             </a>
                                             <form action="{{ route('delete.brand', $brand->id) }}" method="POST"

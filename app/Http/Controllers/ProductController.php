@@ -10,16 +10,29 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    public function show() {
-        $products = Product::with('brand')->where('id', '<=', 15)->paginate(5);
+    public function show(Request $request)
+    {
+        $query = $request->input('search');
+
+        if ($query) {
+            $products = Product::where('product_name', 'like', '%' . $query . '%')->orWhere('', 'like', '%'.$request->search.'%')->paginate(6)->withQueryString();
+        } else {
+            $products = Product::paginate(6);
+        }
         return view('index', [
             'allproducts' => $products
         ]);
     }
 
-    public function productListView()
+    public function productListView(Request $request)
     {
-        $products = Product::with(['brand', 'category'])->get();
+        $query = $request->input('search');
+
+        if ($query) {
+            $products = Product::where('product_name', 'like', '%' . $query . '%')->paginate(6)->withQueryString();
+        } else {
+            $products = Product::paginate(6);
+        }
         $categories = Category::all();
 
         return view('admin.listProduct', [

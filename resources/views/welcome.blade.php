@@ -99,7 +99,7 @@
 </head>
 
 <body class="auth-container">
-    <div class="container py-5">
+    <div class="container d-flex flex-column justify-content-center min-vh-100 py-5">
         <div class="welcome-header">
             <h1>Welcome to {{ config('app.name', 'HoopsCloth') }}</h1>
             <p>Get amazing experience with the HoopsCloth Store</p>
@@ -110,16 +110,16 @@
                 @if (Route::has('login'))
                     <div class="text-center mb-4">
                         @auth
-                            <a href="{{ url('/index') }}" class="btn btn-primary-custom btn-custom w-100 mb-3">
+                            <a href="{{ url('/index') }}" class="btn btn-primary-custom btn-custom w-50 mb-3">
                                 Dashboard
                             </a>
                         @else
-                            <a href="{{ route('login') }}" class="btn btn-primary-custom btn-custom w-100 mb-3">
+                            <a href="{{ route('login') }}" class="btn btn-primary-custom btn-custom w-50 mb-3">
                                 Log in
                             </a>
 
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="btn btn-outline-custom btn-custom w-100">
+                                <a href="{{ route('register') }}" class="btn btn-outline-custom btn-custom w-50">
                                     Register
                                 </a>
                             @endif
@@ -128,6 +128,7 @@
                 @endif
             </div>
         </div>
+    </div>
 </body>
 
 </html>

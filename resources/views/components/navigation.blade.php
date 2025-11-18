@@ -9,10 +9,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <!-- Centered navigation links -->
             <div class="navbar-nav mx-auto">
-                <a class="nav-link" href="{{ url('/index') }}#about">About</a>
+                
                 <a class="nav-link" href="{{ url('/index') }}#products">Products</a>
-                <a class="nav-link" href="{{ url('/index') }}#gallery">Gallery</a>
-                <a class="nav-link" href="{{ url('/index') }}#contact">Contact</a>
+                <a class="nav-link" href="{{ route('brands.index') }}">Brands</a>
+            
             </div>
             <div class="navbar-nav ">
                 @auth

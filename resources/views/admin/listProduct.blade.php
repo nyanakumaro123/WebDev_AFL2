@@ -11,7 +11,6 @@
     <style>
         .product-card {
             transition: transform 0.3s;
-            height: 100%;
         }
 
         .product-card:hover {
@@ -21,7 +20,8 @@
 
         .product-image {
             height: 200px;
-            object-fit: cover;
+            object-fit: contain;
+            width: 100%;
         }
 
         .product-detail {
@@ -45,6 +45,30 @@
             color: #6c757d;
             font-style: italic;
         }
+
+        .pagination .page-link {
+            color: #000000;
+            background-color: #ffffff;
+            border-color: #dee2e6;
+        }
+
+        .pagination .page-link:hover {
+            color: #000000;
+            background-color: #f8f9fa;
+            border-color: #adb5bd;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+
+        .pagination .page-item.disabled .page-link {
+            color: #6c757d;
+            background-color: #ffffff;
+            border-color: #dee2e6;
+        }
     </style>
 </head>
 
@@ -57,40 +81,29 @@
 
         <h1 class="text-center mb-4">Product List</h1>
 
-        <!-- Category Navigation Tabs -->
-        <ul class="nav nav-tabs mb-4" id="categoryTabs">
-            <li class="nav-item">
-                <a class="nav-link {{ request('category') == 'all' || !request('category') ? 'active' : '' }}"
-                    href="?category=all">
-                    All Products
-                </a>
-            </li>
-            @foreach ($categories as $category)
-                <li class="nav-item">
-                    <a class="nav-link" href="?category={{ $category->id }}">
-                        {{ $category->category_name }}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
+        <div class="row mb-4">
+            <div class="col-md-6 mx-auto">
+                <form action="{{ route('product.list.view') }}" method="GET">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control" placeholder="Search for products..."
+                            value="{{ request('search') }}">
+                        <button class="btn btn-dark" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         <!-- Products Display -->
         <div class="tab-content">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h4>
-                    @if (request('category') == 'all' || !request('category'))
-                        All Products
-                    @else
-                        {{ $categories->where('id', request('category'))->first()->category_name ?? 'Selected Category' }}
-                    @endif
-                </h4>
+                <h4>All Products</h4>
                 <a href="{{ route('product.create.view') }}" class="btn btn-success btn-sm">
                     Create New
                 </a>
             </div>
 
             @if ($products->isEmpty())
-                <div class="empty-category">No products available in this category</div>
+                <div class="empty-category">No products found.</div>
             @else
                 <div class="row">
                     @foreach ($products as $product)
@@ -118,7 +131,8 @@
 
                                     <div class="mt-auto">
                                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                            <a href="{{ route('product.update.view', $product->id) }}"class="btn btn-primary me-md-2">
+                                            <a
+                                                href="{{ route('product.update.view', $product->id) }}"class="btn btn-dark me-md-2">
                                                 Update
                                             </a>
                                             <form action="{{ route('delete.product', $product->id) }}" method="POST"
@@ -136,6 +150,9 @@
                             </div>
                         </div>
                     @endforeach
+                </div>
+                <div class="d-flex justify-content-center">
+                    {{ $products->links() }}
                 </div>
             @endif
         </div>
