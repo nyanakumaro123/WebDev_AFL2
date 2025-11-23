@@ -11,13 +11,15 @@ class BrandSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
-    {
-        // Brand::create([
-        //     'brand_name' => 'nikie',
-        //     'brand_establishment_date' => 'nikie',
-        //     'brand_manufacturing_country' => 'nikie',
-        //     'brand_image' => 'nikie',
-        // ]);
-    }
+
+  //  public function run(): void
+   // {
+        //Brand::truncate();
+
+        // Create specific brands with real data
+       // Brand::create(['brand_name' => 'Nike', 'brand_establishment_date' => '1964-01-25', 'brand_manufacture_country' => 'USA']);
+       // Brand::create(['brand_name' => 'Adidas', 'brand_establishment_date' => '1949-08-18', 'brand_manufacture_country' => 'Germany']);
+       // Brand::create(['brand_name' => 'Puma', 'brand_establishment_date' => '1948-10-01', 'brand_manufacture_country' => 'Germany']);
+   // }
+    
 }
